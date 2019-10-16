@@ -15,17 +15,25 @@ export const setCurrentUser = user => {
 
 export const login = credentials => {
 
-	
+	console.log("credentials are", credentials)
+	console.log(API_URL)
+	debugger
+
 	return dispatch => {
 
-	return fetch(`${API_URL}/user`,{
+	return fetch(`${API_URL}/login`,{
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json"
-		}, body: JSON.stringify({email: "bojack@bojack.com", password: "bobo"})
+		}, 
+		body: JSON.stringify(credentials)
 	})
-			
+		.then(resp => resp.json())
+		.then(user => {
+		user.error ? alert("Invalid Credentials") : dispatch(setCurrentUser(user))
+			})
 		
 	}
 	
 }
+
