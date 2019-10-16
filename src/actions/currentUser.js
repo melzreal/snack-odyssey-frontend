@@ -11,6 +11,12 @@ export const setCurrentUser = user => {
 	}
 }
 
+export const clearCurrentUser = () => {
+
+	return{
+		type: "CLEAR_CURRENT_USER"
+	}
+}
 //asynchronous 
 
 export const login = credentials => {
@@ -35,7 +41,6 @@ export const login = credentials => {
 
 
 
-
 export const getCurrentUser = () => {
 
 	return dispatch => {
@@ -56,3 +61,17 @@ export const getCurrentUser = () => {
 	
 }
 
+
+export const logout = () => {
+
+	return dispatch => {
+		dispatch(clearCurrentUser());
+
+		return fetch(`${API_URL}/logout`,{
+		credentials: "include",	
+		method: "DELETE"		
+		})
+		
+	}
+	
+}

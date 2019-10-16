@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LoginForm from './components/LoginForm';
+import Logout from './components/Logout';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser';
 
@@ -12,13 +13,23 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-            <LoginForm/>
-              <p> POTATO </p>
-            </div>
+            
+            this.props.currentUser ? <Logout/> : <LoginForm/>
+
+                  
+           
         );
     }
 }
 
-export default connect(null, { getCurrentUser })(App);
+//our state has currentUser and that is why we can destructure
+//and just use the name of the incoming object
+
+const mapStateToProps = ({currentUser}) => {
+	return {
+		currentUser
+	}
+}
+
+export default connect(mapStateToProps, { getCurrentUser })(App);
 

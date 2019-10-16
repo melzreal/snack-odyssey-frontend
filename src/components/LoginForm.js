@@ -15,7 +15,7 @@ const LoginForm = ({ loginForm, updateLoginForm, login}) => {
     }
 
     const handleSubmit = event => {
-        debugger
+     
         event.preventDefault();
         login(loginForm)
     }
