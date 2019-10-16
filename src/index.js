@@ -7,10 +7,16 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import thunk from 'redux-thunk';
-import usersReducer from './reducers/usersreducer'
+import users from './reducers/usersreducer';
+import currentUser from './reducers/currentUser';
+import loginForm from './reducers/loginReducer';
+
+
 
 const reducer = combineReducers({
-	usersReducer
+	users,
+	currentUser, 
+	loginForm
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

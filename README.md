@@ -1,5 +1,8 @@
+# Snack Odyssey App FrontEnd
+
 React App snackodyssey - essentially a travel blog CMS
 Backend rails api in: https://github.com/melzreal/snack-odyssey-backend
+
 
 
 Models
@@ -11,7 +14,7 @@ password
 
 Countries
 name
-has_many :cities
+has_many :places
 
 
 Places
