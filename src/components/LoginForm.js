@@ -51,4 +51,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { updateLoginForm, login })(LoginForm)
+export default connect(mapStateToProps, { updateLoginForm, login })(LoginForm);
