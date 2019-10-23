@@ -8,7 +8,8 @@ const MasterContainer = () => {
    return (
     <div className="MasterContainer">
 	   
-	   Uopi
+	   Home!
+	   
     </div>
         );
 }

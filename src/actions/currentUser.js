@@ -23,7 +23,7 @@ export const login = credentials => {
 
 	return dispatch => {
 		return fetch(`${API_URL}/login`,{
-		credentials: "include",	
+		credentials: "include",
 		method: "POST",
 		headers: {
 		"Content-Type": "application/json"
@@ -45,17 +45,25 @@ export const getCurrentUser = () => {
 
 	return dispatch => {
 
-	return fetch(`${API_URL}/get_current_user`,{
-		credentials: "include",
-		method: "GET",
-		headers: {
-			"Content-Type": "application/json"
-		}
-	})
+		return fetch(`${API_URL}/get_current_user`,{
+			credentials: "include",
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			}
+		})
 		.then(resp => resp.json())
 		.then(user => {
-		user.error ? alert("No user Credentials") : dispatch(setCurrentUser(user))
-			})
+		
+		 if (user.error) { 
+
+			alert("No user Credentials");
+
+	 	  }	else  {
+	 	  	
+			 dispatch(setCurrentUser(user))
+		  }
+		})
 		
 	}
 	
@@ -68,7 +76,7 @@ export const logout = () => {
 		dispatch(clearCurrentUser());
 
 		return fetch(`${API_URL}/logout`,{
-		credentials: "include",	
+			
 		method: "DELETE"		
 		})
 		

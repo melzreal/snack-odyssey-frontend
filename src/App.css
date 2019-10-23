@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-image: linear-gradient(to bottom,#2c4053 0,#2c4053 100%) !important; 
+
 }
 
 .App-logo {
@@ -21,44 +23,3 @@
   color: #09d3ac;
 }
 
-.navbar {
-  list-style: none;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-  font-family: Arial, Helvetica, sans-serif;
-}
-   
-
-.navbar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-}
-
-
-.navbar li {
-  list-style: none;
-  display: inline-block;
-  margin: 10px;
-  padding: 5px;
-
-}
-
-
-.navbar a {
-  text-decoration: none;
-  color: black;
-
-}
-
-.navbar a:hover,
- .navbar a:active {
-  
-  
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-
-
-}
