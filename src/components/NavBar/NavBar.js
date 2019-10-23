@@ -13,18 +13,17 @@ const NavBar = ({currentUser}) => {
    return (
 
    	<div>
-		<div className="Navbar">
-				<header>
-					<ul>
+   	 <div>
+		<header className="Navbar">
+			<ul>
 					  
-		{ currentUser ?  <NavLink to="/logout">Logout </NavLink> : 
-						 <NavLink to="/login">Login</NavLink>  }  
-						 <NavLink to="/home">Home</NavLink>
-
-					  <br/>
-					  <li> { currentUser ? `Hi ${currentUser.name}`: '' }  </li>
-					</ul>
-				</header>
+				<li> { currentUser ?  
+					   <NavLink to="/logout">Logout </NavLink> : 
+				       <NavLink to="/login">Login</NavLink>  }  </li>
+				<li>   <NavLink to="/home">Home</NavLink>       </li> <br/>
+				<li> { currentUser ? `Hi ${currentUser.name}`: '' }  </li>
+			</ul>
+		</header>
 			 </div>
 		 <Switch>
 		  	 <Route  path="/home" component={MasterContainer} /> 

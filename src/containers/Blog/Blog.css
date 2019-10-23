@@ -1,4 +1,4 @@
-.Navbar ul {
+.Blog ul {
 	list-style: none;
 	margin: 0;
 	padding: 5px;
@@ -7,17 +7,17 @@
 }
 
 
-.Navbar li {
+.Blog li {
 	display: inline-block;
 	margin: 10px;
 }
 
-.Navbar a {
+.Blog a {
 	text-decoration: none;
 }
 
-.Navbar a:hover,
-.Navbar a:active {
+.Blog a:hover,
+.Blog a:active {
     color: #ed8040;
 }
 
