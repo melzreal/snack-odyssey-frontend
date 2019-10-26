@@ -8,8 +8,7 @@ export default (state = null, action) => {
 		case "CLEAR_CURRENT_USER":
 			return null
 
-				
-	
+			
 		default:
 		return state	
 	}

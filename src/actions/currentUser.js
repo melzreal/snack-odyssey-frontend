@@ -1,5 +1,7 @@
-const API_URL = process.env.REACT_APP_API_URL;
+import { resetLoginForm } from './loginForm'
 
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 //synchronous
 
@@ -23,22 +25,37 @@ export const login = credentials => {
 
 	return dispatch => {
 		return fetch(`${API_URL}/login`,{
-		credentials: "include",
-		method: "POST",
-		headers: {
-		"Content-Type": "application/json"
+			credentials: "include",
+			method: "POST",
+			headers: {
+			"Content-Type": "application/json"
 		}, 
 		body: JSON.stringify(credentials)
 		})
 		.then(resp => resp.json())
 		.then(user => {
-		user.error ? alert("Invalid Credentials") : dispatch(setCurrentUser(user))
+		user.error ? alert("Invalid Credentials") : dispatch(setCurrentUser(user.data))
 		})
 		
 	}
 	
 }
 
+
+
+
+export const logout = () => {
+	return dispatch => {
+
+		dispatch(clearCurrentUser());
+		return fetch(`${API_URL}/logout`,{
+			credentials: "include",	
+			method: "DELETE"		
+		})
+		
+	}
+	
+}
 
 
 export const getCurrentUser = () => {
@@ -57,27 +74,13 @@ export const getCurrentUser = () => {
 		
 		 if (user.error) { 
 
-			alert("No user Credentials");
+			alert(user.error);
 
 	 	  }	else  {
 	 	  	
-			 dispatch(setCurrentUser(user))
+			 dispatch(setCurrentUser(user.data))
+			 dispatch(resetLoginForm())
 		  }
-		})
-		
-	}
-	
-}
-
-
-export const logout = () => {
-
-	return dispatch => {
-		dispatch(clearCurrentUser());
-
-		return fetch(`${API_URL}/logout`,{
-			
-		method: "DELETE"		
 		})
 		
 	}
