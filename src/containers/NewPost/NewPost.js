@@ -1,54 +1,88 @@
 import React, { Component } from 'react';
 import './NewPost.css';
+import { connect } from 'react-redux';
+import { updateFormData, createPost } from '../../actions/blogPosts';
 
 class NewPost extends Component {
-    state = {
-        blog_id: 1,
+    
+
+  state = { 
+   postFormData: {
         title: '',
-        content: '',
-      
+        body: '',
+        blog_id: 1
     }
+  }
 
-    newPostHandler = () => {
-        debugger;
-        const newpost = {
-            blog_id: 1,
-            title: this.state.title,
-            content: this.state.content
-          
-        }
+  handleOnChange = event => {
+   
+  const { name, value} = event.target
+   
+   //nested state assignment
 
-        fetch('http://localhost:3001/api/blogs/posts', {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json"
-        }, 
-        body: JSON.stringify(newpost)
-        })
-        .then(resp => resp.json())
-        .then(post => { 
-            console.log(post)
-           })
+    const currentFormData = Object.assign(this.state, {
+        postFormData: Object.assign(this.state.postFormData, { 
+            [name]: value }),
+    });
 
-    }
+    //is this necessary or does mapStateToprops do it
+     //this.setState(currentFormData);
+        
 
-    componentDidMount(){
-        console.log(this.props)
-    }
+    this.props.updateFormData(currentFormData);
+  }
 
-    render () {
+
+
+
+  handleOnSubmit = event => {
+    event.preventDefault();
+    this.props.createPost(this.state.postFormData);   
+
+  }
+
+  render() {
+
+
+    const { title, body } = this.props;
+
+
         return (
-            <div className="NewPost">
+
+        <div className="NewPost">
+            <form onSubmit={this.handleOnSubmit}>
+
                 <h1>Add a Post</h1>
-                <label>Title</label>
-                <input type="text" value={this.state.title} onChange={(event) => this.setState({title: event.target.value})} />
-                <label>Content</label>
-                <textarea rows="4" value={this.state.content} onChange={(event) => this.setState({content: event.target.value})} />
+            <label htmlFor="title" className="col-md-4 control-label">Title</label>
+                <input type="text" 
+                name="title" 
+                value={title} 
+                onChange={this.handleOnChange} />
+            <label htmlFor="body" className="col-md-4 control-label">Content</label>
+                <textarea rows="4" 
+                name="body" 
+                value={body} 
+                onChange={this.handleOnChange} />
                
-                <button onClick={this.newPostHandler}>Add Post</button>
+                <button type="submit" className="btn btn-default">Add Post</button>
+           </form>
             </div>
         );
+    
     }
 }
 
-export default NewPost;
+
+const mapStateToProps = (state) => {
+   
+    
+  return ({
+    postFormData: state.postFormData 
+  })
+
+}
+
+
+
+export default connect(mapStateToProps, {updateFormData, createPost})(NewPost);
+

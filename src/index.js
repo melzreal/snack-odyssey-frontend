@@ -13,7 +13,6 @@ import loginForm from './reducers/loginReducer';
 import blogPosts from './reducers/blogPosts';
 
 
-
 const reducer = combineReducers({
 	users,
 	currentUser, 
@@ -23,6 +22,7 @@ const reducer = combineReducers({
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
+
 
 
 ReactDOM.render(<Provider store={store}> 

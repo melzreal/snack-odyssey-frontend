@@ -16,26 +16,11 @@ class Posts extends Component {
 
 		this.props.getBlogPosts();
 
-
-	
-		//  const freshPosts = post.data.map( p => {
-		    	 
-		//         return {
-		//             ...p.attributes	          
-
-		//         }
-		//     })
-		// this.setState({posts: freshPosts})})
-		  
-
-
 	}
 
 
     render() {
-
-    	
-	const posts = this.props.posts.map( post => { 
+    	const posts = this.props.posts.map( post => { 
 		return (
 	
 			<Post 
@@ -53,6 +38,8 @@ class Posts extends Component {
 				<section className="Posts">
 					{posts}
 				</section>
+				
+				
 
             </div>
         );

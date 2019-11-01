@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route, Link, NavLink} from 'react-router-dom';
+import { Switch, Route, NavLink} from 'react-router-dom';
 import MasterContainer from '../../containers/MasterContainer';
 import Posts from '../../containers/Posts/Posts';
 import NewPost from '../../containers/NewPost/NewPost';
