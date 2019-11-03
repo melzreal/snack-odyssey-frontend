@@ -11,8 +11,7 @@ export default (state = initialState, action ) => {
 		const post = state.postFormData
 		// return state.currentUser.attributes.posts.concat(post);
 		return {...state, post}
-
-		
+	
 		case 'UPDATED_DATA':
 		return action.postFormData
 

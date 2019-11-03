@@ -41,11 +41,15 @@ export const setBlogPosts = posts => {
 
 export const getBlogPosts = () => {
 
+debugger;
+
 	return dispatch => {
 		return fetch(`${API_URL}/blogs/1/posts/`)
 		.then(resp => resp.json())
+
 		.then(posts => {  
-			dispatch(setBlogPosts(posts.data)) })
+
+		   dispatch(setBlogPosts(posts.data)) })
 		.catch(error => console.log(error));
 		
 	}

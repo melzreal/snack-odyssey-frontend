@@ -47,17 +47,11 @@ fetch(`https://api.imgur.com/3/gallery/t/${tag}/`, {
       })
       .then(res => res.json())
       .then(({data}) => {
-        debugger;
-        this.setState({ gifs: data.items.filter( meme => ({ link: meme.images }) ) })
+        
+        this.setState({ gifs: data.items.filter( meme => ({ link: meme.images}) ) })
       })
   }
- // fetchGIFs = (query = "pandas") => {
- //    fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=dc6zaTOxFJmzC&rating=g&limit=3`)
- //      .then(res => res.json())
- //      .then(({data}) => {
- //        this.setState({ gifs: data.map( gif => ({ url: gif.images.original.url }) ) })
- //      })
- //  }
+
 
   componentDidMount() {
     this.fetchGIFs()

@@ -5,9 +5,7 @@ class Blog extends Component {
     render() {
         return (
             <div>
-                 <form>
-           
-                </form>
+                
             </div>
         );
     }
