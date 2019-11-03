@@ -6,13 +6,19 @@ import { updateFormData, createPost } from '../../actions/blogPosts';
 class NewPost extends Component {
     
 
-  state = { 
+
+constructor(props){
+  super(props)
+  this.state = {
    postFormData: {
         title: '',
         body: '',
         blog_id: 1
     }
+     
   }
+}
+
 
   handleOnChange = event => {
    
@@ -36,7 +42,9 @@ class NewPost extends Component {
 
 
   handleOnSubmit = event => {
+
     event.preventDefault();
+
     this.props.createPost(this.state.postFormData);   
 
   }
@@ -75,7 +83,6 @@ class NewPost extends Component {
 
 const mapStateToProps = (state) => {
    
-    
   return ({
     postFormData: state.postFormData 
   })

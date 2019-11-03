@@ -14,24 +14,26 @@ class Posts extends Component {
 
 	componentDidMount(){
 
-		this.props.getBlogPosts();
-
+		this.props.getBlogPosts()
+	
 	}
 
 
     render() {
-    	const posts = this.props.posts.map( post => { 
-		return (
-	
-			<Post 
-				key={post.attributes.id}
-				title={post.attributes.title}
-				body={post.attributes.body}
-				clicked={() => this.selectedPostHandler(post.attributes.id)}/>
-	
-			);
-		});
 
+    	
+    	const posts = this.props.posts.map( post => { 
+			return (
+		
+				<Post 
+					key={post.id}
+					title={post.attributes.title}
+					body={post.attributes.body}
+					clicked={() => this.selectedPostHandler(post.attributes.id)}/>
+		
+				);
+			});
+    	
 
         return (
             <div>

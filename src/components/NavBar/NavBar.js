@@ -1,17 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, NavLink} from 'react-router-dom';
+
 import MasterContainer from '../../containers/MasterContainer';
 import Posts from '../../containers/Posts/Posts';
 import NewPost from '../../containers/NewPost/NewPost';
-
-
 import LoginForm from '../Login/LoginForm';
 import Logout from '../Logout/Logout';
 import './NavBar.css';
 
+
+
 const NavBar = ({currentUser}) => {
 
+	//dirty fix? just to make sure navbar gets blogposts
 
    return (
 
@@ -50,6 +52,7 @@ const NavBar = ({currentUser}) => {
 const mapStateToProps = ({currentUser}) => {
 	return {
 		currentUser
+
 	}
 }
 

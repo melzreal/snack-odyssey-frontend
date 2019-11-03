@@ -1,13 +1,6 @@
 const API_URL = process.env.REACT_APP_API_URL;
 
 //sync
-export const setBlogPosts = posts => {
-
-	return{
-		type: "GET_BLOG_POSTS_SUCCESS",
-		posts
-	}
-}
 
 export const updateFormData = postFormData => {
 	
@@ -19,7 +12,14 @@ export const updateFormData = postFormData => {
 }
 
 
-const addPost = post => {
+export const resetFormData = () => {
+	
+	return {
+		type: 'RESET_FORM'
+	}
+}
+
+export const addPost = post => {
 
 
 	return {
@@ -28,6 +28,13 @@ const addPost = post => {
 	}
 }
 
+export const setBlogPosts = posts => {
+
+	return{
+		type: "GET_BLOG_POSTS_SUCCESS",
+		posts
+	}
+}
 
 
 //async actions
