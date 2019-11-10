@@ -6,18 +6,14 @@ import { updateFormData, createPost } from '../../actions/blogPosts';
 class NewPost extends Component {
     
 
-
-constructor(props){
-  super(props)
-  this.state = {
+state = {
+   
    postFormData: {
         title: '',
         body: '',
         blog_id: 1
     }
-     
   }
-}
 
 
   handleOnChange = event => {
@@ -25,6 +21,7 @@ constructor(props){
   const { name, value} = event.target
    
    //nested state assignment
+
 
     const currentFormData = Object.assign(this.state, {
         postFormData: Object.assign(this.state.postFormData, { 
@@ -81,10 +78,13 @@ constructor(props){
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
    
   return ({
-    postFormData: state.postFormData 
+    
+    postFormData: state.postFormData
+
+
   })
 
 }

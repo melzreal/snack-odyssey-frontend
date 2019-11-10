@@ -4,6 +4,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 export const updateFormData = postFormData => {
 	
+	debugger;
 	return {
 		type: 'UPDATED_DATA',
 		postFormData
@@ -41,7 +42,6 @@ export const setBlogPosts = posts => {
 
 export const getBlogPosts = () => {
 
-debugger;
 
 	return dispatch => {
 		return fetch(`${API_URL}/blogs/1/posts/`)

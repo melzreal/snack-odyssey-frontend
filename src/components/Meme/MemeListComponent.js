@@ -1,38 +1,60 @@
 import React from 'react'
 
+
+const liStyle = {
+   display: 'inline',
+   width: 120,
+   height: 140,
+
+};
+
 const MemeList = props => {
 
- 
+//there are a lot of images that come back as undefined - hence filter 
 
-//there are a lot of images that come back as undefined
-//so we handle that by using filter to remove undefined values
-//then loop through the nested arrays of images returned
-//so we can shove those images into an array, making it easier to display them
-const linksCollection = []
+let obj = props.gifs.map((meme) => meme.images)
+.filter(a => a)
+.map( inner => inner.map( i => i.link ))
+
+
+//2 level nested array of links, we have to iterate through that level
+//then grab just one of those links from each inner array using flat
+
 let bo = props.gifs.map((meme) => meme.images).filter(a => a)
-
-
-  for(var i = 0; i < bo.length; i++) {
-    for(var j = 0; j < bo[i].length; j++) {
-       
-        linksCollection.push(bo[i][j].link);
-        console.log(linksCollection)
-    }
+let linksies = bo.map( inner => inner.map( i => {
+  if ( i.link.includes("jpg")){
+    return i.link
+  } else {
+    return "https://i.imgur.com/ayUNF4o.jpg"
   }
+})).flat(0)
+
+let descriptors = bo.map( inner => inner.map( i => {
+  if ( i.description !== null ){
+    return i.description
+  } else {
+    return "random meme"
+  }
+})).flat(0)
+
 
 
 
   return (
 
-    <div>
-        {props.gifs.map(meme => 
-          {linksCollection.forEach(a => 
-        	
+    <div >
+    
+    {linksies.map((goodie, i) =>
+     
+      
+            <img style={liStyle} key={i} src={goodie} alt={null} />
 
-          	<img key={meme.id} src={a} alt={meme.title}/>
-          	)
-           }
+         
+           
          )}
+  
+
+       
     </div>
   )
 }
