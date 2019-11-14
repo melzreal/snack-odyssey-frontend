@@ -50,7 +50,6 @@ class Posts extends Component {
 
 const mapStateToProps = (state) => {
 	
-	debugger;
 	
   return ({	
     posts: state.blogPosts

@@ -14,8 +14,7 @@ import './NavBar.css';
 
 const NavBar = ({currentUser}) => {
 
-	//dirty fix? just to make sure navbar gets blogposts
-
+	
    return (
 
    	<div>

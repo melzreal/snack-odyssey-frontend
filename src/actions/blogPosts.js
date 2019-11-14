@@ -4,7 +4,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 export const updateFormData = postFormData => {
 	
-	debugger;
+	
 	return {
 		type: 'UPDATED_DATA',
 		postFormData
@@ -74,7 +74,7 @@ export const createPost = post => {
 		.then(post => {
 
 			dispatch(addPost(post))
-			// dispatch(resetFormData())
+			dispatch(resetFormData())
 		})
     }
 }
