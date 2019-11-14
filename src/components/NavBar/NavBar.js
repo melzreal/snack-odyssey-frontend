@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Switch, Route, NavLink} from 'react-router-dom';
 
 import MemeListContainer from '../../containers/Memes/MemeListContainer';
-import MasterContainer from '../../containers/MasterContainer';
 import Posts from '../../containers/Posts/Posts';
 import NewPost from '../../containers/NewPost/NewPost';
 import LoginForm from '../Login/LoginForm';
@@ -25,7 +24,6 @@ const NavBar = ({currentUser}) => {
 				<li> { currentUser ?  
 					   <NavLink to="/logout">Logout </NavLink> : 
 				       <NavLink to="/login">Login</NavLink>  }  </li>
-				<li>   <NavLink to="/home">Home</NavLink>       </li> 
 				<li>   <NavLink to="/posts">Blog</NavLink>       </li>
 				<li>   <NavLink to="/new-post">New Post</NavLink>       </li>
 				  <li> <NavLink to="/memes">Meme Your Friends</NavLink></li> <br/>
@@ -34,7 +32,7 @@ const NavBar = ({currentUser}) => {
 		</header>
 			 </div>
 		 <Switch>
-		  	 <Route  path="/home" component={MasterContainer} /> 
+		  
 		  	 <Route  path="/posts" component={Posts} /> 
 		  	 <Route  path="/new-post" component={NewPost} />
 			 <Route  path="/login" component={LoginForm} />

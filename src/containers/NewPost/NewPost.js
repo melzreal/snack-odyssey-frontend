@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './NewPost.css';
 import { connect } from 'react-redux';
-import { updateFormData, createPost } from '../../actions/blogPosts';
+import { updateFormData, createPost, resetFormData } from '../../actions/blogPosts';
 
 class NewPost extends Component {
     
@@ -14,6 +14,7 @@ state = {
         blog_id: 1
     }
   }
+
 
 
   handleOnChange = event => {
@@ -43,6 +44,7 @@ state = {
     event.preventDefault();
 
     this.props.createPost(this.state.postFormData);   
+    this.props.resetFormData();
 
   }
 
@@ -91,5 +93,5 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps, {updateFormData, createPost})(NewPost);
+export default connect(mapStateToProps, {updateFormData, createPost, resetFormData})(NewPost);
 
