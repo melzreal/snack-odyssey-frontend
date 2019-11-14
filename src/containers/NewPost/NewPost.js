@@ -8,11 +8,11 @@ class NewPost extends Component {
 
 state = {
    
-   postFormData: {
+
         title: '',
         body: '',
         blog_id: 1
-    }
+    
   }
 
 
@@ -24,16 +24,15 @@ state = {
    //nested state assignment
 
 
-    const currentFormData = Object.assign(this.state, {
-        postFormData: Object.assign(this.state.postFormData, { 
-            [name]: value }),
-    });
+    // const currentFormData = Object.assign(this.state.postFormData, {
+    //     postFormData: Object.assign(this.state.postFormData, { 
+    //         [name]: value }),
+    // });
 
     //is this necessary or does mapStateToprops do it
-     //this.setState(currentFormData);
+     this.setState( { [name]: value });
         
-
-    this.props.updateFormData(currentFormData);
+    // this.props.updateFormData(currentFormData);
   }
 
 
@@ -42,16 +41,21 @@ state = {
   handleOnSubmit = event => {
 
     event.preventDefault();
-
-    this.props.createPost(this.state.postFormData);   
-    this.props.resetFormData();
+    this.props.createPost(this.state);   
+    this.setState({ 
+     
+        title: '',
+        body: '',
+        blog_id: 1
+    })
 
   }
+
 
   render() {
 
 
-    const { title, body } = this.props;
+    const { title, body } = this.state;
 
 
         return (

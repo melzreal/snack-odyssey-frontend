@@ -74,8 +74,8 @@ export const createPost = post => {
 		.then(resp => resp.json())
 		.then(post => {
 
-			dispatch(addPost(post))
-			dispatch(resetFormData())
+			dispatch(addPost(post.data))
+			// dispatch(resetFormData())
 		})
     }
 }

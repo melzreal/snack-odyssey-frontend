@@ -14,9 +14,9 @@ export default (state = initialState, action ) => {
 		//I will then need to update mapStateToProps in posts to make sure the post was received
 		//blogPosts: state.blogPosts.concat(post)
 		
-		const post = state.postFormData
+		// const post = state.postFormData
 		// return state.currentUser.attributes.posts.concat(post);
-		return {...state, post}
+		return [...state, action.post]
 	
 		//updated data was overriding blogposts, lets try to add former state
 		case 'UPDATED_DATA':

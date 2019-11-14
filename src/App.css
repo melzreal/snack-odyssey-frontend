@@ -1,4 +1,14 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon/icomoon.eot?1z9v6x");
+  src: url("../fonts/icomoon/icomoon.eot?1z9v6x#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.ttf?1z9v6x") format("truetype"), url("../fonts/icomoon/icomoon.woff?1z9v6x") format("woff"), url("../fonts/icomoon/icomoon.svg?1z9v6x#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 .App {
+  font-family: 'icomoon', Fallback, sans-serif;
   text-align: center;
   background-image: linear-gradient(to bottom,#2c4053 0,#2c4053 100%) !important; 
 
@@ -9,6 +19,7 @@
 }
 
 .App-header {
+  font-family: 'icomoon', Fallback, sans-serif;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;

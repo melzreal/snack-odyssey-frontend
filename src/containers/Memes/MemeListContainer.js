@@ -47,7 +47,7 @@ fetch(`https://api.imgur.com/3/gallery/t/${tag}/`, {
       })
       .then(res => res.json())
       .then(({data}) => {
-        
+  
         this.setState({ gifs: data.items.filter( meme => ({ link: meme.images}) ) })
       })
   }
