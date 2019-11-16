@@ -11,10 +11,9 @@ const liStyle = {
 const MemeList = props => {
 
 //there are a lot of images that come back as undefined - hence filter 
-
-let obj = props.gifs.map((meme) => meme.images)
-.filter(a => a)
-.map( inner => inner.map( i => i.link ))
+// let obj = props.gifs.map((meme) => meme.images)
+// .filter(a => a)
+// .map( inner => inner.map( i => i.link ))
 
 
 //2 level nested array of links, we have to iterate through that level

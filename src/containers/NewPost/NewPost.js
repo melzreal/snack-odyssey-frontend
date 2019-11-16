@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './NewPost.css';
+import './NewPost.scss';
 import { connect } from 'react-redux';
 import { updateFormData, createPost, resetFormData } from '../../actions/blogPosts';
 
@@ -84,18 +84,6 @@ state = {
 }
 
 
-const mapStateToProps = state => {
-   
-  return ({
-    
-    postFormData: state.postFormData
 
-
-  })
-
-}
-
-
-
-export default connect(mapStateToProps, {updateFormData, createPost, resetFormData})(NewPost);
+export default connect(null, { createPost, resetFormData})(NewPost);
 

@@ -1,17 +1,27 @@
+@font-face {
+  font-family: 'Open Sans', sans-serif;
+  src: local('Open Sans'), url('../../fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+}
+
+
 .NewPost {
+    font-family: 'Open Sans';
     width: 80%;
     margin: 20px auto;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
     text-align: center;
+    background-color: white;
+
+    label {
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+        font-weight: bold; 
+    }
 }
 
-.NewPost label {
-    display: block;
-    margin: 10px auto;
-    text-align: center;
-    font-weight: bold;
-}
+
 
 .NewPost input,
 .NewPost textarea,

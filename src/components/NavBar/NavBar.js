@@ -7,7 +7,7 @@ import Posts from '../../containers/Posts/Posts';
 import NewPost from '../../containers/NewPost/NewPost';
 import LoginForm from '../Login/LoginForm';
 import Logout from '../Logout/Logout';
-import './NavBar.css';
+import './NavBar.scss';
 
 
 

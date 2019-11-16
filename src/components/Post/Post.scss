@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Zeyada';
+  src: local('Zeyada'), url('../../fonts/Zeyada/Zeyada-Regular.ttf') format('truetype');
+}
+
+
+.Post {
+    font-family: 'Zeyada';
+    background-color: white;
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    margin: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &:hover {
+        background-color:#e6f2ff;    
+    }
+    &:active {
+        background-color:#e6f2ff;    
+    }
+
+}
+
+

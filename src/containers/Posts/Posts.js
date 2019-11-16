@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Post from '../../components/Post/Post';
-import './Posts.css';
+import './Posts.scss';
 import { connect } from 'react-redux';
 import { getBlogPosts } from '../../actions/blogPosts';
 

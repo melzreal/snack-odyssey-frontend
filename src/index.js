@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
@@ -12,6 +12,14 @@ import currentUser from './reducers/currentUser';
 import loginForm from './reducers/loginReducer';
 import blogPosts from './reducers/blogPosts';
 
+import WebFont from 'webfontloader';
+
+WebFont.load({
+  google: {
+    families: ['Open Sans Regular:300,400',
+    'Monofett', 'Zeyada']
+  }
+});
 
 const reducer = combineReducers({
 	users,
