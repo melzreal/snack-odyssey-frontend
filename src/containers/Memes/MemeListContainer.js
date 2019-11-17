@@ -40,7 +40,7 @@ fetch(`https://api.imgur.com/3/gallery/t/${tag}/`, {
 
       method: 'GET',
       headers: {
-        "Authorization": "Client-ID 24d509e682e1651" ,
+        "Authorization": clientID ,
          "Content-Type": "application/json"
       },
         credentials: "same-origin"

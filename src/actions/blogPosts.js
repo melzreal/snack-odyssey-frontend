@@ -41,16 +41,16 @@ export const setBlogPosts = posts => {
 
 //async actions
 
-export const getBlogPosts = () => {
+export const getBlogPosts = (userId) => {
 
 
 	return dispatch => {
-		return fetch(`${API_URL}/blogs/1/posts/`)
+		return fetch(`${API_URL}/users/${userId}/`)
 		.then(resp => resp.json())
 
 		.then(posts => {  
-
-		   dispatch(setBlogPosts(posts.data)) })
+			
+		   dispatch(setBlogPosts(posts.data.attributes.blog.posts)) })
 		.catch(error => console.log(error));
 		
 	}
