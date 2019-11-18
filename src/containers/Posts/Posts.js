@@ -3,7 +3,6 @@ import Post from '../../components/Post/Post';
 import './Posts.scss';
 import { connect } from 'react-redux';
 import { getBlogPosts } from '../../actions/blogPosts';
-import { getCurrentUser } from '../../actions/currentUser';
 
 
 class Posts extends Component {
@@ -14,7 +13,8 @@ class Posts extends Component {
     }
 
 	componentDidMount(){
-		this.props.getBlogPosts(1)
+		
+		this.props.getBlogPosts(1);
 	}
 
 
@@ -48,7 +48,7 @@ class Posts extends Component {
 }
 
 const mapStateToProps = (state) => {
-	
+
  switch (state.currentUser) {
     case "null":
       return {
@@ -67,5 +67,5 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps,{ getBlogPosts, getCurrentUser })(Posts);
+export default connect(mapStateToProps,{ getBlogPosts })(Posts);
 

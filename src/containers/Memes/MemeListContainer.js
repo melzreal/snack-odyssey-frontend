@@ -27,7 +27,7 @@ class MemeListContainer extends Component {
 
 fetchGIFs = (tag = "funny") => {
 
-var clientID = process.env.CLIENT_ID;
+// var clientID = process.env.CLIENT_ID;
 
 //we map first through the array of data 
 //then within the array of images for each data item
@@ -40,14 +40,14 @@ fetch(`https://api.imgur.com/3/gallery/t/${tag}/`, {
 
       method: 'GET',
       headers: {
-        "Authorization": clientID ,
+        "Authorization": "Client-ID 24d509e682e1651",
          "Content-Type": "application/json"
       },
         credentials: "same-origin"
       })
       .then(res => res.json())
-      .then(({data}) => {
-  
+      .then(({data}) => {  
+
         this.setState({ gifs: data.items.filter( meme => ({ link: meme.images}) ) })
       })
   }

@@ -45,7 +45,7 @@ export const login = credentials => {
 
 
 export const logout = () => {
-	debugger;
+	
 	return dispatch => {
 
 		dispatch(clearCurrentUser());

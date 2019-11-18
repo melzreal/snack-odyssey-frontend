@@ -6,7 +6,7 @@ export default (state = null, action) => {
 			return action.user
 
 		case "CLEAR_CURRENT_USER":
-			return null
+			return state
 
 			
 		default:

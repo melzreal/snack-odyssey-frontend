@@ -26,7 +26,7 @@ const NavBar = ({currentUser}) => {
 				       <NavLink to="/login">Login</NavLink>  }  </li>
 				<li>   <NavLink to="/posts">Blog</NavLink>       </li>
 				<li>   <NavLink to="/new-post">New Post</NavLink>       </li>
-				  <li> <NavLink to="/memes">Meme Your Friends</NavLink></li> <br/>
+				  <li> <NavLink to="/memes">Memes</NavLink></li> <br/>
 				<li> { currentUser ? `Hi ${currentUser.attributes.name}`: '' }  </li>
 			</ul>
 		</header>
