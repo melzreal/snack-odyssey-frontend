@@ -23,7 +23,6 @@ class Posts extends Component {
     	const posts = this.props.posts.map( post => { 
 	
 			return (
-		
 				<Post 
 					key={post.id}
 					title={post.title}
@@ -36,19 +35,17 @@ class Posts extends Component {
 
         return (
             <div>
-				<section className="Posts">
-					{posts}
-				</section>
-				
-				
-
+      				<section className="Posts">
+      					{posts}
+      				</section>
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => {
-
+  console.log(state.currentUser)
+ 
  switch (state.currentUser) {
     case "null":
       return {

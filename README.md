@@ -14,8 +14,11 @@ Done - ish
 - Issue with New posts not yet know to the reducer on first refresh (done - I need to make forms a child of blog posts or just ensure newpost doesn't override current redux store?) [done, for some reason dispatching the action to clear the form made mapDispatchtoprops call properly]
 - MemeList functionality [ needs to be improved - some crazy mappings, a default cat too]
 - Need to make sure users only see their own posts (currently posting as user 1 and everyone can access) [done with a serializer on the ]
-
+- Add a few more stateless components to finish fulfilling project requirements (done)
 
 Current to do:
-- Pass logged in user id from redux store to getPosts
-- Add a few more stateless components to finish fulfilling project requirements
+- Pass logged in user id from redux store to getPosts (not getting user id from store)
+- Maybe add a few more meme apis for fun
+
+
+

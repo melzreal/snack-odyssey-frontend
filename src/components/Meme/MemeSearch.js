@@ -2,10 +2,8 @@ import React, { useState } from 'react'
 
 const MemeSearch  = ({fetchGIFs}) => {
 
-  
-  // const useMemeSearch = (callback) => {
-  
-    const [inputs, setInputs] = useState({});
+    
+  const [inputs, setInputs] = useState({});
   
 
     const handleInputChange = (event) => {
@@ -20,7 +18,6 @@ const MemeSearch  = ({fetchGIFs}) => {
     }
   
   
-  // const {inputs, handleInputChange, handleSubmit} = useMemeSearch();
 
     return (
       <div>
