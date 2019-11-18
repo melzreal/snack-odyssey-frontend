@@ -1,68 +1,47 @@
-import React, { Component } from 'react';
 import Post from '../../components/Post/Post';
 import './Posts.scss';
+import React from 'react';
 import { connect } from 'react-redux';
-import { getBlogPosts } from '../../actions/blogPosts';
 
 
-class Posts extends Component {
+const Posts = ({currentUser}) => {
 
-
-    selectedPostHandler = ( id ) => {
-        this.props.history.push('/' + id);
-    }
-
-	componentDidMount(){
-		
-		this.props.getBlogPosts(1);
-	}
-
-
-    render() {
-    	
-    	const posts = this.props.posts.map( post => { 
-	
-			return (
-				<Post 
-					key={post.id}
-					title={post.title}
-					body={post.body}
-					clicked={() => this.selectedPostHandler(post.id)}/>
-		
-				);
-			});
-    	
-
-        return (
-            <div>
-      				<section className="Posts">
-      					{posts}
-      				</section>
-            </div>
+  
+   return (
+<div>
+    { currentUser ?  
+    
+    currentUser.attributes.blog.posts.map( 
+      post => { 
+  
+      return (
+        <div className="Posts"> <Post 
+          key={post.id}
+          title={post.title}
+          body={post.body}
+          clicked={() => this.selectedPostHandler(post.id)}/>
+          </div>
+    
         );
-    }
+      })  : '' 
+   }
+
+    </div>
+        );
 }
 
-const mapStateToProps = (state) => {
-  console.log(state.currentUser)
+
+//our state has currentUser and that is why we can destructure
+//and just use the name of the incoming object
+
+const mapStateToProps = ({currentUser}) => {
  
- switch (state.currentUser) {
-    case "null":
-      return {
-       posts: state.blogPosts
-      };
-    case !null:
-      return {
-         currentUser: state.currentUser.id
-      };
-    default:
-      return ({	
-      	posts: state.blogPosts,
-   	})
-  }
 
+  return {
+    currentUser
+
+  }
 }
 
 
-export default connect(mapStateToProps,{ getBlogPosts })(Posts);
-
+export default connect(mapStateToProps)(Posts);

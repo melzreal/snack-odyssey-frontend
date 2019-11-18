@@ -17,8 +17,8 @@ Done - ish
 - Add a few more stateless components to finish fulfilling project requirements (done)
 
 Current to do:
-- Pass logged in user id from redux store to getPosts (not getting user id from store)
+- Pass logged in user id from redux store to getPosts (not getting user id from store) (done)
 - Maybe add a few more meme apis for fun
-
+- Pass logged in user id to create New Posts
 
 
