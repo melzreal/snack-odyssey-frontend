@@ -1,10 +1,11 @@
 import Post from '../../components/Post/Post';
 import './Posts.scss';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 
 const Posts = ({currentUser}) => {
+
 
   
    return (
@@ -15,12 +16,13 @@ const Posts = ({currentUser}) => {
       post => { 
   
       return (
-        <div className="Posts"> <Post 
+      <div className="Posts"> 
+        <Post 
           key={post.id}
           title={post.title}
           body={post.body}
           clicked={() => this.selectedPostHandler(post.id)}/>
-          </div>
+        </div>
     
         );
       })  : '' 

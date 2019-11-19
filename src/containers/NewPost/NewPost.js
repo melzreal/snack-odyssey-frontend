@@ -8,10 +8,9 @@ class NewPost extends Component {
 
 state = {
    
-
         title: '',
         body: '',
-        blog_id: 1
+        blog_id: ''
     
   }
 
@@ -29,10 +28,10 @@ state = {
     //         [name]: value }),
     // });
 
-    //is this necessary or does mapStateToprops do it
-     this.setState( { [name]: value });
-        
-    // this.props.updateFormData(currentFormData);
+    console.log(this.props.currentUser.id)
+     this.setState( { [name]: value,
+     blog_id: this.props.currentUser.id });
+
   }
 
 
@@ -42,11 +41,12 @@ state = {
 
     event.preventDefault();
     this.props.createPost(this.state);   
+    
     this.setState({ 
      
         title: '',
         body: '',
-        blog_id: 1
+        blog_id: ''
     })
 
   }
@@ -54,8 +54,7 @@ state = {
 
   render() {
 
-
-    const { title, body } = this.state;
+    const { title, body, blog_id } = this.state;
 
 
         return (
@@ -74,7 +73,11 @@ state = {
                 name="body" 
                 value={body} 
                 onChange={this.handleOnChange} />
-               
+
+              <input type="hidden" 
+              name="blog_id" 
+              value={blog_id}  />
+
                 <button type="submit" className="btn btn-default">Add Post</button>
            </form>
             </div>
@@ -83,7 +86,16 @@ state = {
     }
 }
 
+const mapStateToProps = ({currentUser}) => {
+ 
+
+  return {
+    currentUser
+
+  }
+}
 
 
-export default connect(null, { createPost, resetFormData})(NewPost);
+
+export default connect(mapStateToProps, { createPost, resetFormData})(NewPost);
 
