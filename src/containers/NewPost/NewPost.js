@@ -20,15 +20,12 @@ state = {
    
   const { name, value} = event.target
    
-   //nested state assignment
-
-
+   //nested state assignment    
     // const currentFormData = Object.assign(this.state.postFormData, {
     //     postFormData: Object.assign(this.state.postFormData, { 
     //         [name]: value }),
     // });
-
-    console.log(this.props.currentUser.id)
+  
      this.setState( { [name]: value,
      blog_id: this.props.currentUser.id });
 

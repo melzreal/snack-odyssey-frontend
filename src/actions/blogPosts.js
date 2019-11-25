@@ -1,5 +1,6 @@
-const API_URL = process.env.REACT_APP_API_URL;
+import { getCurrentUser } from './currentUser';
 
+const API_URL = process.env.REACT_APP_API_URL;
 //sync
 
 export const updateFormData = postFormData => {
@@ -73,9 +74,10 @@ export const createPost = post => {
 		})
 		.then(resp => resp.json())
 		.then(post => {
-			
+		
 			dispatch(addPost(post.data))
-		    dispatch(resetFormData())
+			dispatch(getCurrentUser())
+		    //dispatch(resetFormData())
 		})
     }
 }

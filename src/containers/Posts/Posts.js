@@ -1,13 +1,18 @@
 import Post from '../../components/Post/Post';
 import './Posts.scss';
-import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 
 
 const Posts = ({currentUser}) => {
 
 
-  
+ // useEffect(() => {
+ //  debugger;
+ //    // this.props.getCurrentUser()
+ //  },[currentUser]);
+
+
    return (
 <div>
     { currentUser ?  
@@ -18,6 +23,7 @@ const Posts = ({currentUser}) => {
       return (
       <div className="Posts"> 
         <Post 
+         
           key={post.id}
           title={post.title}
           body={post.body}
@@ -33,8 +39,8 @@ const Posts = ({currentUser}) => {
 }
 
 
-//our state has currentUser and that is why we can destructure
-//and just use the name of the incoming object
+// our state has currentUser and that is why we can destructure
+// and just use the name of the incoming object
 
 const mapStateToProps = ({currentUser}) => {
  

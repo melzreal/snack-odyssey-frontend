@@ -34,7 +34,7 @@ export const login = credentials => {
 		})
 		.then(resp => resp.json())
 		.then(user => {
-		debugger; 
+	
 		user.error ? alert("Invalid Credentials") : dispatch(setCurrentUser(user.data))
 		})
 		
