@@ -39,6 +39,11 @@ export const setBlogPosts = posts => {
 	}
 }
 
+export const deleteBlogPost = postId =>{
+	return {
+		type: "DELETE_BLOG_POST_SUCCESS"
+	}
+}
 
 //async actions
 
@@ -61,7 +66,7 @@ export const getBlogPosts = (userId) => {
 
 
 export const createPost = post => {
-
+ 
 
 	return dispatch => {
 	
@@ -74,15 +79,33 @@ export const createPost = post => {
 		})
 		.then(resp => resp.json())
 		.then(post => {
-		
+		 
 			dispatch(addPost(post.data))
 			dispatch(getCurrentUser())
-		    //dispatch(resetFormData())
+		   
 		})
     }
+
 }
 
 
+
+export const deletePost = (id) => {
+
+	
+	return dispatch => {
+		return fetch(`${API_URL}/blogs/1/posts/${id}`, {
+			method: "DELETE"
+		})
+		.then(resp => resp.json())
+		.then(postId => {  
+			  dispatch(deletePost(postId))
+			  dispatch(getCurrentUser())
+		.catch(error => console.log(error));	
+		})
+	
+	}
+}
 
 
 		

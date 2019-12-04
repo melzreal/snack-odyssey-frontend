@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './NewPost.scss';
 import { connect } from 'react-redux';
-import { updateFormData, createPost, resetFormData } from '../../actions/blogPosts';
+import { createPost, resetFormData } from '../../actions/blogPosts';
 
 class NewPost extends Component {
     
@@ -37,8 +37,11 @@ state = {
   handleOnSubmit = event => {
 
     event.preventDefault();
-    this.props.createPost(this.state);   
     
+    console.log("a")
+    this.props.createPost(this.state);   
+    console.log("b")
+
     this.setState({ 
      
         title: '',

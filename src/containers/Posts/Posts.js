@@ -1,17 +1,27 @@
 import Post from '../../components/Post/Post';
 import './Posts.scss';
 import { connect } from 'react-redux';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { deletePost } from '../../actions/blogPosts';
+
+
+
 
 
 const Posts = ({currentUser}) => {
+  const [state, setState] = useState({votes:0});
 
-
- // useEffect(() => {
- //  debugger;
- //    // this.props.getCurrentUser()
- //  },[currentUser]);
-
+  const ratePost = (postId) => {
+   
+    
+    const newVoteValue = state.votes + 1;
+    setState({  postID: postId, votes: newVoteValue });
+    debugger;
+    console.log(state)
+    //ratepost will add 1 to the rating of the selectedpost
+    // .sort( (a,b) => b.post.id < a.post.id ? b.post.id : a.post.id ) 
+  
+  }
 
    return (
 <div>
@@ -27,7 +37,12 @@ const Posts = ({currentUser}) => {
           key={post.id}
           title={post.title}
           body={post.body}
-          clicked={() => this.selectedPostHandler(post.id)}/>
+          clicked={() => deletePost(post.id)}
+          ratepost={() => ratePost(post.id)}
+          sortposts={() => sortByRating(post.id)}
+        
+          />
+
         </div>
     
         );
@@ -36,8 +51,17 @@ const Posts = ({currentUser}) => {
 
     </div>
         );
+
+        
 }
 
+
+
+
+
+const sortByRating = (postId) => {
+  //sortByrating will sort all posts according to ratepost values
+}
 
 // our state has currentUser and that is why we can destructure
 // and just use the name of the incoming object

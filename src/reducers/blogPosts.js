@@ -17,6 +17,8 @@ export default (state = initialState, action ) => {
 		//{...state, action.postFormData}
 		return  action.postFormData
 
+	
+
 		case 'RESET_FORM':
 		return initialState;
 		

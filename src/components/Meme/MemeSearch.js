@@ -25,7 +25,9 @@ const MemeSearch  = ({fetchGIFs}) => {
           <input type="text" 
           name="query" 
           value={inputs.query}
-          onChange={handleInputChange} />
+          onChange={handleInputChange} 
+          />
+          <button type="submit" className="btn btn-default">Search Memes</button>
         </form>
       </div>
     )

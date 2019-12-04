@@ -28,13 +28,13 @@ let linksies = bo.map( inner => inner.map( i => {
   }
 })).flat(0)
 
-let descriptors = bo.map( inner => inner.map( i => {
-  if ( i.description !== null ){
-    return i.description
-  } else {
-    return "random meme"
-  }
-})).flat(0)
+// let descriptors = bo.map( inner => inner.map( i => {
+//   if ( i.description !== null ){
+//     return i.description
+//   } else {
+//     return "random meme"
+//   }
+// })).flat(0)
 
 
 
@@ -46,7 +46,7 @@ let descriptors = bo.map( inner => inner.map( i => {
     {linksies.map((goodie, i) =>
      
       
-            <img style={liStyle} key={i} src={goodie} alt={null} />
+            <img style={liStyle} key={i} src={goodie} alt="" />
 
          
            
