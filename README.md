@@ -16,14 +16,15 @@ Done - ish
 - Add a few more stateless components to finish fulfilling project requirements (done)
 - Pass logged in user id from redux store to getPosts (not getting user id from store) (done)
 - Pass logged in user id to create New Posts (done)
+- Posts do not refresh after a new one is added, need to make that happen (done)
+
 
 
 Current to do:
 
-- Posts do not refresh after a new one is added, need to make that happen
 
 - Improve MemeList functionality [ some crazy mappings, a default cat too]
-
+- Add meme sharing
 - Maybe add a few more meme apis for fun
 
 

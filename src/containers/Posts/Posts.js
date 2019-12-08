@@ -1,48 +1,45 @@
 import Post from '../../components/Post/Post';
+import StarRating from '../Stars/StarRating';
 import './Posts.scss';
 import { connect } from 'react-redux';
 import React, { useState } from 'react';
-import { deletePost } from '../../actions/blogPosts';
 
 
 
 
-
-const Posts = ({currentUser}) => {
-  const [state, setState] = useState({votes:0});
-
-  const ratePost = (postId) => {
-   
-    
-    const newVoteValue = state.votes + 1;
-    setState({  postID: postId, votes: newVoteValue });
-    debugger;
-    console.log(state)
-    //ratepost will add 1 to the rating of the selectedpost
-    // .sort( (a,b) => b.post.id < a.post.id ? b.post.id : a.post.id ) 
+const Posts = ({currentUser, postVotes =[]}) => {
   
+  const [votes, setState] = useState(0);
+
+  const ratePost = (postId, currentUser) => {
+    
+    postVotes = { [postId]: votes }
+    setState( { [postId]: votes+1 })
+    // setState( votes+1 )
+     console.log(postVotes)
+     console.log("votesState is " + votes)
+    
   }
 
    return (
 <div>
     { currentUser ?  
-    
     currentUser.attributes.blog.posts.map( 
-      post => { 
-  
+
+      (post, i) => { 
+       
       return (
-      <div className="Posts"> 
+      <div className="Posts" key={i}> 
         <Post 
          
           key={post.id}
           title={post.title}
           body={post.body}
-          clicked={() => deletePost(post.id)}
+          
           ratepost={() => ratePost(post.id)}
           sortposts={() => sortByRating(post.id)}
+        />
         
-          />
-
         </div>
     
         );
