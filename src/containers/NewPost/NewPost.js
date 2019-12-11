@@ -38,9 +38,8 @@ state = {
 
     event.preventDefault();
     
-    console.log("a")
     this.props.createPost(this.state);   
-    console.log("b")
+   
 
     this.setState({ 
      

@@ -3,6 +3,8 @@ import { getCurrentUser } from './currentUser';
 const API_URL = process.env.REACT_APP_API_URL;
 //sync
 
+
+
 export const updateFormData = postFormData => {
 	
 	
@@ -45,7 +47,9 @@ export const deleteBlogPost = postId =>{
 	}
 }
 
+
 //async actions
+
 
 export const getBlogPosts = (userId) => {
 

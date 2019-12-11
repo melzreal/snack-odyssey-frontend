@@ -5,21 +5,19 @@ import { connect } from 'react-redux';
 import React, { useState } from 'react';
 
 
-
-
 const Posts = ({currentUser, postVotes =[]}) => {
+  const [posts, setState] = useState();
+ 
+  const ratePost = (currentUser, postID) => {
   
-  const [votes, setState] = useState(0);
-
-  const ratePost = (postId, currentUser) => {
-    
-    postVotes = { [postId]: votes }
-    setState( { [postId]: votes+1 })
-    // setState( votes+1 )
-     console.log(postVotes)
-     console.log("votesState is " + votes)
-    
+   setState(currentUser.attributes.blog.posts)
+   console.log(posts)
+   // // setState( votes+1 )
+   //  console.log(postVotes)
+   //  console.log("votesState is " + votes)
+   //sortBlogPosts();
   }
+  
 
    return (
 <div>
@@ -36,8 +34,8 @@ const Posts = ({currentUser, postVotes =[]}) => {
           title={post.title}
           body={post.body}
           
-          ratepost={() => ratePost(post.id)}
-          sortposts={() => sortByRating(post.id)}
+          ratepost={() => ratePost(currentUser, post.id)}
+          sortposts={() => sortByRating(currentUser)}
         />
         
         </div>
@@ -55,9 +53,11 @@ const Posts = ({currentUser, postVotes =[]}) => {
 
 
 
-
-const sortByRating = (postId) => {
+const sortByRating = currentUser => {
+  console.log(currentUser)
   //sortByrating will sort all posts according to ratepost values
+  console.log(currentUser.attributes.blog.posts.sort((a,b) => a.id < b.id ? 1 : -1))
+
 }
 
 // our state has currentUser and that is why we can destructure
