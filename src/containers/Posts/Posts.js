@@ -15,11 +15,12 @@ const Posts = ({currentUser}) => {
     }, [currentUser]);
 
   const ratePost = (currentUser, postID) => {
-    
+    // console.log(posts)
     const sorted = currentUser.attributes.blog.posts.sort((a,b) => a.id < b.id ? 1 : -1)
-    setState(sorted)
+    setState([...sorted])
     
-   console.log(posts)
+   
+   console.log(sorted)
 
   }
   
@@ -39,7 +40,7 @@ const Posts = ({currentUser}) => {
           body={post.body}
           
           ratepost={() => ratePost(currentUser, post.id)}
-          sortposts={() => sortByRating(currentUser)}
+          sortposts={() => sortByRating(posts)}
         />
         
         </div>
@@ -57,10 +58,13 @@ const Posts = ({currentUser}) => {
 
 
 
-const sortByRating = currentUser => {
-  
+const sortByRating =  posts => {
+ 
   //sortByrating will sort all posts according to ratepost values
-  
+  const sorted = posts.sort((a,b) => a.id < b.id ? 1 : -1)
+  console.log(posts)
+  // setState(sorted)
+
 }
 
 // our state has currentUser and that is why we can destructure
