@@ -2,16 +2,22 @@ import Post from '../../components/Post/Post';
 import StarRating from '../Stars/StarRating';
 import './Posts.scss';
 import { connect } from 'react-redux';
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 
 
 const Posts = ({currentUser, postVotes =[]}) => {
-  const [posts, setState] = useState();
- 
+  const [posts, setState] = useState({});
+      useEffect(() => {
+        if (currentUser) {
+          setState(currentUser.attributes.blog.posts)
+        }
+    }, [currentUser]);
+
   const ratePost = (currentUser, postID) => {
-  
-   setState(currentUser.attributes.blog.posts)
+     
+   
    console.log(posts)
+
    // // setState( votes+1 )
    //  console.log(postVotes)
    //  console.log("votesState is " + votes)
