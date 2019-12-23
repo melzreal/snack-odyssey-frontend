@@ -6,7 +6,7 @@ import React, { useState, useEffect  } from 'react';
 import { resetFormData } from '../../actions/blogPosts';
 
 const Posts = ({currentUser}) => {
-  const [posts, setState] = useState();
+  const [posts, setState] = useState([]);
 
       useEffect(() => {
         if (currentUser) {
@@ -14,20 +14,38 @@ const Posts = ({currentUser}) => {
         }
     }, [currentUser]);
 
-  const ratePost = (currentUser, postID) => {
+  const flipPosts = () => {
     // console.log(posts)
+    let flipped = false;
+    if (flipped === false ){
     const sorted = currentUser.attributes.blog.posts.sort((a,b) => a.id < b.id ? 1 : -1)
-    setState([...sorted])
-    
-   
-   console.log(sorted)
-
+    setState([...sorted])    
+    flipped = true ;
+    } else {
+      const unflip = currentUser.attributes.blog.posts.sort((a,b) => a.id > b.id ? 1 : -1)
+      setState([...unflip])  
+      flipped = false ;
+    }
   }
-  
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const handleChange = event => {
+    setSearchTerm(event.target.value);
+  };
+
+  let filtered = posts.filter( term => { 
+      return term.body.toLowerCase().indexOf(searchTerm.toLowerCase())  !== -1;
+  });
 
    return (
 <div>
-    { posts ?  posts.map( 
+   <input
+        type="text"
+        placeholder="Search"
+        value={searchTerm}
+        onChange={handleChange}
+      /> 
+    { posts ?  filtered.map( 
 
       (post, i) => { 
        
@@ -38,9 +56,8 @@ const Posts = ({currentUser}) => {
           key={post.id}
           title={post.title}
           body={post.body}
-          
-          ratepost={() => ratePost(currentUser, post.id)}
-          sortposts={() => sortByRating(posts)}
+          flipPosts={() => flipPosts()}
+         
         />
         
         </div>
@@ -55,20 +72,14 @@ const Posts = ({currentUser}) => {
         
 }
 
-
-
-
-const sortByRating =  posts => {
- 
-  //sortByrating will sort all posts according to ratepost values
-  const sorted = posts.sort((a,b) => a.id < b.id ? 1 : -1)
-  console.log(posts)
-  // setState(sorted)
+const searchPosts = (event, term) => {
+  event.preventDefault();
+  console.log("yay clicked")
+//  let filteredPosts = posts.filter( a => a.contains(searchterm) ? a : '')
+//  setState(filteredPosts)
 
 }
 
-// our state has currentUser and that is why we can destructure
-// and just use the name of the incoming object
 
 const mapStateToProps = ({currentUser}) => {
  

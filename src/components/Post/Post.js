@@ -8,8 +8,8 @@ const Post = (props) => (
         <h1>{props.title}</h1>
         <h1>{props.body}</h1>
        
-       <button className="ratepost" onClick={props.ratepost}>Rate Post</button>
-       <button className="sortPosts" onClick={props.sortposts}>UpVote Post</button>
+       <button className="sort" onClick={props.flipPosts}>Flip Posts Order</button>
+     
        
     </article>
 );

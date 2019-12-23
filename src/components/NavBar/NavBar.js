@@ -7,6 +7,7 @@ import Posts from '../../containers/Posts/Posts';
 import NewPost from '../../containers/NewPost/NewPost';
 import LoginForm from '../Login/LoginForm';
 import Logout from '../Logout/Logout';
+
 import './NavBar.scss';
 
 
@@ -28,6 +29,7 @@ const NavBar = ({currentUser}) => {
 				<li>   <NavLink to="/new-post">New Post</NavLink>       </li>
 				  <li> <NavLink to="/memes">Memes</NavLink></li> <br/>
 				<li> { currentUser ? `Hi ${currentUser.attributes.name}`: '' }  </li>
+				
 			</ul>
 		</header>
 			 </div>
