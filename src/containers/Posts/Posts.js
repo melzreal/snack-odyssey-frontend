@@ -1,5 +1,4 @@
 import Post from '../../components/Post/Post';
-import StarRating from '../Stars/StarRating';
 import './Posts.scss';
 import { connect } from 'react-redux';
 import React, { useState, useEffect  } from 'react';
@@ -9,6 +8,8 @@ import { resetFormData } from '../../actions/blogPosts';
 const Posts = ({currentUser}) => {
   const [posts, setState] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  let [flipped, setFlipped] = useState(false)
+    // const [votingSystem, setVotes] =  useState({ postCollection: [{ postId: '', votes: '' }]})
 
 
     // check if the currentUser exists in the redux store
@@ -23,15 +24,15 @@ const Posts = ({currentUser}) => {
     }, [currentUser]);
 
   const flipPosts = () => {  
-    let flipped = false;
+    
     if (!flipped){
       let sorted = posts.sort((a,b) => a.id < b.id ? 1 : -1)
       setState([...sorted])  
-      flipped = true;
+      setFlipped(true);
     } else {
       let unsorted = posts.sort((a,b) => a.id > b.id ? 1 : -1)
       setState([...unsorted])  
-      flipped = false;
+      setFlipped(false);
     }
 
   }
