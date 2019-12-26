@@ -5,8 +5,16 @@ import { connect } from 'react-redux';
 import React, { useState, useEffect  } from 'react';
 import { resetFormData } from '../../actions/blogPosts';
 
+
 const Posts = ({currentUser}) => {
   const [posts, setState] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
+
+    // check if the currentUser exists in the redux store
+    // grab posts from redux into a local state called posts 
+    // then run portfolio state exercises using hooks
+
 
       useEffect(() => {
         if (currentUser) {
@@ -14,27 +22,27 @@ const Posts = ({currentUser}) => {
         }
     }, [currentUser]);
 
-  const flipPosts = () => {
-    // console.log(posts)
+  const flipPosts = () => {  
     let flipped = false;
-    if (flipped === false ){
-    const sorted = currentUser.attributes.blog.posts.sort((a,b) => a.id < b.id ? 1 : -1)
-    setState([...sorted])    
-    flipped = true ;
+    if (!flipped){
+      let sorted = posts.sort((a,b) => a.id < b.id ? 1 : -1)
+      setState([...sorted])  
+      flipped = true;
     } else {
-      const unflip = currentUser.attributes.blog.posts.sort((a,b) => a.id > b.id ? 1 : -1)
-      setState([...unflip])  
-      flipped = false ;
+      let unsorted = posts.sort((a,b) => a.id > b.id ? 1 : -1)
+      setState([...unsorted])  
+      flipped = false;
     }
-  }
 
-  const [searchTerm, setSearchTerm] = useState('');
+  }
+ 
   const handleChange = event => {
     setSearchTerm(event.target.value);
   };
 
-  let filtered = posts.filter( term => { 
-      return term.body.toLowerCase().indexOf(searchTerm.toLowerCase())  !== -1;
+
+  let filtered = posts.filter(term => { 
+      return term.title.toLowerCase().indexOf(searchTerm.toLowerCase())  !== -1;
   });
 
    return (
@@ -57,6 +65,7 @@ const Posts = ({currentUser}) => {
           title={post.title}
           body={post.body}
           flipPosts={() => flipPosts()}
+        
          
         />
         
@@ -72,13 +81,6 @@ const Posts = ({currentUser}) => {
         
 }
 
-const searchPosts = (event, term) => {
-  event.preventDefault();
-  console.log("yay clicked")
-//  let filteredPosts = posts.filter( a => a.contains(searchterm) ? a : '')
-//  setState(filteredPosts)
-
-}
 
 
 const mapStateToProps = ({currentUser}) => {

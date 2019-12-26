@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './Post.scss';
 
 const Post = (props) => (
@@ -8,7 +7,14 @@ const Post = (props) => (
         <h1>{props.title}</h1>
         <h1>{props.body}</h1>
        
-       <button className="sort" onClick={props.flipPosts}>Flip Posts Order</button>
+       <button className="sort" 
+       onClick={props.flipPosts}>
+           Flip Posts Order
+           </button>
+       <button className="vote" 
+       onClick={props.voteForPost} >
+           Vote for this Post
+        </button>
      
        
     </article>
