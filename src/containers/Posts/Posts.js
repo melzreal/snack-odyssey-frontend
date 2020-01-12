@@ -10,14 +10,8 @@ const Posts = ({currentUser}) => {
   const [searchTerm, setSearchTerm] = useState('');
   let [flipped, setFlipped] = useState(false)
     // const [votingSystem, setVotes] =  useState({ postCollection: [{ postId: '', votes: '' }]})
-
-
-    // check if the currentUser exists in the redux store
-    // grab posts from redux into a local state called posts 
-    // then run portfolio state exercises using hooks
-
-
-      useEffect(() => {
+    
+    useEffect(() => {
         if (currentUser) {
           setState(currentUser.attributes.blog.posts)
         }

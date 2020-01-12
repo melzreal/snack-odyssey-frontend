@@ -11,13 +11,10 @@ const Post = (props) => (
        onClick={props.flipPosts}>
            Flip Posts Order
            </button>
-       <button className="vote" 
-       onClick={props.voteForPost} >
-           Vote for this Post
-        </button>
      
        
     </article>
 );
 
 export default Post;
+

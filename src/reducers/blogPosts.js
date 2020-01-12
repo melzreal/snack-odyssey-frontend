@@ -17,6 +17,8 @@ export default (state = initialState, action ) => {
 		//{...state, action.postFormData}
 		return  action.postFormData
 
+		case 'SORT_POSTS_SUCCESS':
+		return action.posts
 	
 
 		case 'RESET_FORM':
